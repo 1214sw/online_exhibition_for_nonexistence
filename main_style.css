@@ -3,11 +3,16 @@ h1 {
   font-size: 50px;
   text-align: center;
   border-bottom: 1px solid gray;
-  margin: 0px;
   padding: 20px;
 }
 
-.image_frame {
-  border: black 2px solid;
-  margin: 20px;
+#name_grid {
+  border: 3px solid pink;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.name h2 {
+  text-align: center;
+  margin: 5px;
 }
