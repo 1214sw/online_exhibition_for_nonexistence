@@ -1,5 +1,6 @@
 h1 {
   font-family: cursive;
+  font-variation-settings: 'wght' 1000,'ital' 100, 'SPAC' 180;
   font-size: 50px;
   text-align: center;
   border-bottom: 1px solid gray;
@@ -14,5 +15,6 @@ h1 {
 
 .name h2 {
   text-align: center;
+  font-variation-settings: 'wght' 300;
   margin: 5px;
 }
