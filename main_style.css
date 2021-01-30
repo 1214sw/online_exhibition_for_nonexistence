@@ -3,12 +3,16 @@ h1 {
   font-variation-settings: 'wght' 1000,'ital' 100, 'SPAC' 180;
   font-size: 50px;
   text-align: center;
-  border-bottom: 1px solid gray;
   padding: 20px;
 }
 
 #name_grid {
-  border: 2px solid red;
+  border-top-style: double;
+  border-left-style: hidden;
+  border-right-style: hidden;
+  border-color: 5px solid black;
+  border-top-color: 5px solid rgb(255, 0, 0);
+  border-bottom-color: 5px solid rgb(255, 0, 191);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
