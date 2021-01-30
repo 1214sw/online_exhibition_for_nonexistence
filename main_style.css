@@ -12,20 +12,17 @@ h1 {
   font-family: cursive;
   font-weight: 100;
   text-align: center;
-  font-size: 10vw;
-  font-variation-settings: 'wght' 100, 'wdth' 85;
-  animation: breathe 3000ms infinite forwards;
+  font-size:40px;
+  font-variation-settings: 'wght' 500, 'wdth' 85;
+  animation: breathe 5000ms infinite forwards;
 }
 
-
-@keyframes breathe {
-  60% {
-    font-variation-settings: 'wght' 700, 'wdth' 100;
-  }
-  
-  100% {
-    font-variation-settings: 'wght' 100, 'wdth' 85;
-  }
+@keyframes breathe{
+  0%{transform: scale(1);}
+  20%{transform:scale(0.9);}
+  50%{transform: scale(1.1);}
+  90%{transform: scale(.3);}
+  99%{transform:scale(.99);}
 }
 
 #name_grid {
@@ -41,13 +38,15 @@ h1 {
   font-variation-settings: 'wght' 300, 'wdth' 85;
   font-size: 30px;
   margin: 5px;
-  animation: breathe 300ms infinite forwards;
+  animation: rotate 32450ms linear 0s infinite;
 }
 
-p {
-  text-align: center;
-  font-variation-settings: 'wght' 300, 'wdth' 85;
+
+@keyframes rotate{
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
 }
+
 
 a:link{
   text-decoration: none;
