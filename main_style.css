@@ -8,7 +8,7 @@
 
 
 
-h1 {
+.title h1 {
   font-family: cursive;
   font-weight: 100;
   text-align: center;
@@ -33,6 +33,17 @@ h1 {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+#intro_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.intro {
+	text-align: center;
+
+	
+}
+
 .name h2 {
   text-align: center;
   font-variation-settings: 'wght' 300, 'wdth' 85;
@@ -41,10 +52,31 @@ h1 {
   animation: rotate 32450ms linear 0s infinite;
 }
 
+.name h2:nth-child(3n+2){
+	background-color: #049524;
+}
+
+#img_warhol {
+	margin: 5px;
+	text-align: center;
+	animation: rotate 23333330ms infinite;
+	opacity: 0.5;
+	z-index: -1;
+}
+
+#img_warhol:hover::before {
+	transition-duration: .25s;
+
+}
+
+#img_warhol:hover::after {
+	opacity: 0.9;
+
+}
 
 @keyframes rotate{
-  0%{transform: rotate(0deg);}
-  100%{transform: rotate(360deg);}
+  0%{transform: rotate(47deg);}
+  100%{transform: rotate(330deg);}
 }
 
 
