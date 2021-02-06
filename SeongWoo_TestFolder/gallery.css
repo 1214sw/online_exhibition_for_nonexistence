@@ -1,0 +1,20 @@
+.frame {
+  display: block;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 5px black solid;
+  margin: 0px;
+  padding: 0px;
+}
+
+.frame img{
+  display: block;
+
+  max-height: 700px;
+  max-width: 1100px;
+  object-fit: cover;
+}
