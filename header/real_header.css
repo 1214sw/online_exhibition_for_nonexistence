@@ -15,7 +15,7 @@
   height: 80px;
   display: block;
   color: var(--default-color);
-  /*background-color: var(--default-color);*/
+  background-color: var(--default-color);
 }
 
 .inner_header{
@@ -36,8 +36,9 @@
   position: absolute;
   margin: auto;
   color: white;
-  display: table-cell;
+  display: block;
   vertical-align: middle;
+  padding: 20px 0;
   font-family: Helvetica;
   font-size: 32px;
   font-weight: 200;
@@ -47,42 +48,77 @@
   font-weight: 800;
 }
 
-ul{
+nav:after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+nav ul {
   height: 100%;
-  display: block;
-  vertical-align: middle;
-  text-align: center;
   float: right;
-  font-size: 20px;
+  list-style: none;
+  margin-right: 40px;
+  position: relative;
   font-family: Helvetica;
 }
 
-li {
-  height: 100%;
-  vertical-align: middle;
-  display: table-cell;
-  margin: 0 0;
-  border-left: 2px solid black;
-  padding: 0 60px;
-  position: relative;
+nav ul li {
+  float: left;
+  display: inline-block;
   text-align: center;
+  margin: 0 5px;
 }
 
-li a {
+nav ul li a {
+  line-height: 80px;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 25px;
   color: transparent;
   text-decoration: none;
   -webkit-text-stroke: 1px var(--fill-color);
   background: linear-gradient(var(--fill-color) 0 100%) right / 0 no-repeat;
   -webkit-background-clip: text;
   background-size: 100%;
-  transition: 0.2s;
+}
+
+nav ul ul {
+  position: absolute;
+  top: 80px;
+  border-bottom: 1px solid black;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
 }
 
 li a:hover {
   background-size: 0%;
+  transition: 0.2s;
 }
 
 li:hover {
   cursor: progress;
 }
+
+
+nav ul li:hover > ul {
+  opacity: 1;
+  visibility: visible;
+}
+
+nav ul ul li {
+  position: relative;
+  margin: 0px;
+  width: 150px;
+  float: none;
+  display: list-item;
+  background-color: var(--default-color);
+  border-bottom: 1px solid black;
+}
+
+nav ul ul li a {
+  line-height: 60px;
+}
+
 
