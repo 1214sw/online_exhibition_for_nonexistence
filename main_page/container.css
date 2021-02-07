@@ -1,25 +1,20 @@
 .container{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
+	margin-top: 200px;
+	margin-left: 200px;
+	display: grid;
+	grid-template-columns: repeat(1000, 700px);
+	grid-auto-rows: minmax(700px, 1000px);
+	grid-gap: 50px;
+	justify-content: stretch;
+	align-content: stretch;
+	height: 10000vh;
+	width: 10000vh;
 }
 
 .container-item{
-	width: 200px;
-	margin: 30px;
+
 	border: 2px solid black;
 	border-radius: 10px;
 	color: black;
 	background-color: #887423;
-}
-
-.item-1{
-	min-height: 200px;
-}
-.item-2{
-	min-height: 200px;
-}
-.item-3{
-	min-height: 400px;
 }
