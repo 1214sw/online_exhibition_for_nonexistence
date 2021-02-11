@@ -1,9 +1,9 @@
 .container{
-	margin-top: 200px;
-	margin-left: 200px;
+	margin-top: 50px;
+	margin-left: 50px;
 	display: grid;
-	grid-template-columns: repeat(1000, 700px);
-	grid-auto-rows: minmax(700px, 1000px);
+	grid-template-columns: repeat(1000, 500px);
+	grid-template-rows: repeat(1000, 500px);
 	grid-gap: 50px;
 	justify-content: stretch;
 	align-content: stretch;
