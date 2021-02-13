@@ -1,15 +1,7 @@
-const section = document.querySelector('section');
-let currentPos = window.pageYOffset;
+var sample_txt = document.querySelector('.container').innerHTML;
 
-const update = () => {
-	const newPos = window.pageYOffset;
-	const diff = newPos - currentPos;
-	const speed = diff * 0.35
+var n=1033;
 
-	section.style.transform = 'skewY(${speed}deg)';
-	currentPos = newPos;
-	requestAnimationFrame(update);
-}
-
-update();
-
+for(var i = 0; i<n; i++){
+document.querySelector('.container').innerHTML += sample_txt;
+};

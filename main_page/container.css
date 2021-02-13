@@ -1,9 +1,14 @@
+body{
+	font-family: Helvetica;
+	background-color: black;
+}
+
 .container{
-	margin-top: 50px;
-	margin-left: 50px;
+	margin-top: 100px;
+	margin-left: 100px;
 	display: grid;
-	grid-template-columns: repeat(1000, 500px);
-	grid-template-rows: repeat(1000, 500px);
+	grid-template-columns: repeat(100, 500px);
+	grid-template-rows: repeat(100, 500px);
 	grid-gap: 50px;
 	justify-content: stretch;
 	align-content: stretch;
@@ -12,9 +17,22 @@
 }
 
 .container-item{
-
+	margin-top: 50px;
+	margin-left: 50px;
 	border: 2px solid black;
 	border-radius: 10px;
 	color: black;
-	background-color: #887423;
+	background-color: white;
+	justify-content: center;
+	align-content: center;
+	text-align: center;
+}
+
+
+.container-item h1{
+	color: black;
+	text-align: center;
+	vertical-align: center;
+	font-size: 80px;
+	font-weight: 700;
 }
