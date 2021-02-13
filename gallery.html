@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>For Nonexistence</title>
     <link rel="stylesheet" href="gallery.css">
+    <script type="text/javascript" src="gallery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   </head>
   <body>
     <a href="index.html">
@@ -13,8 +15,27 @@
     </a>
 
     <div class="frame">
-      <img src="image/jjmokoo5.jpg" alt="artwork">
+      <a href="">
+        <img src="image/jjmokoo5.jpg" alt="artwork" z-index=0>
+      </a>
+
+      <div class="artist">
+        Jun Mo
+      </div>
+      <div class="title">
+        Inner Peace
+      </div>
     </div>
+
+
+    <button type="button" name="button"
+    onclick="btn_click()"
+    style="
+      position: absolute;
+      width: 200px; height:120px;
+      top:20px; right:20px;
+    "
+    >Button</button>
 
   </body>
 </html>
