@@ -1,25 +1,21 @@
-var sample_txt = document.querySelector('.container').innerHTML;
+function getnumber(min,max){
+    return Math.random()*(max-min)+min
+}
 
-var n=12;
+$(document).ready(function(){
+    window.scrollBy(getnumber(2534,6485),getnumber(3456,5456));
+})
+
+
+var sample_txt = $('.container').html();
+var RIOT = `<div class = "container-item item-4"><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1></div>`
+var Boogie_Woogie = `<div class = "container-item item-7"><h1>Boogie-Woogie-Boogie-Woogie</h1></div>`
+var n=6;
 
 for(var i = 0; i<n; i++){
-document.querySelector('.container').innerHTML = document.querySelector('.container').innerHTML + document.querySelector('.container').innerHTML;
+    document.querySelector('.container').innerHTML = document.querySelector('.container').innerHTML + RIOT + document.querySelector('.container').innerHTML+ document.querySelector('.container').innerHTML+ Boogie_Woogie.repeat(i) + document.querySelector('.container').innerHTML;
 };
 
-
-/* Scroll to specific image*/
-
-$(document).ready(function() {
-var page_url = window.location.href;
-var page_id = page_url.substring(page_url.lastIndexOf("#") +1);
-alert(page_id);
-$("html, body").animate({
-  scrollTop: $(".container-item " + page_id).offset().top
-}, 10000);
-});
-// $("html, body").animate({
-//   scrollTop: $(".container-item " + page_id).offset().top
-// }, 1000);
 
 /*Totop, Toleft */
 
@@ -44,10 +40,13 @@ window.addEventListener("scroll", () => {
 })
 
 
+
 $(".to-top").click(function(){
-  alert("CLICK!");
+  alert("Elevator Up!");
+  window.scrollBy(0,getnumber(-13556,-25));
 });
 
 $(".to-left").click(function(){
-  alert("LEFT CLICK!")
+  alert("Elevator Down!");
+  window.scrollBy(-203,5930);
 });
