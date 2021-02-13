@@ -3,6 +3,9 @@ body{
 	background-color: black;
 }
 
+#left{
+	width: 10%; float: left;
+}
 .container{
 	margin-top: 100px;
 	margin-left: 100px;
