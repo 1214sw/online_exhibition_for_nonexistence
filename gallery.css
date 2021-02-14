@@ -49,15 +49,48 @@ body {
   z-index: 0;
 }
 
-.frame img:hover {
-  border: 2px solid white;
-  filter: brightness(0.5);
+.frame > .button {
+  display: none;
+
+  background-color: transparent;
+  border: 0;
+
+  position: absolute;
+  top:50%; left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: white;
+  font-size: 40px;
+
+  cursor: pointer;
+  transition: 1s;
+}
+
+.frame > .button:focus{
+  background-color: gray;
+}
+
+.frame > #btn1 {left: calc(50% - 200px);}
+.frame > #btn2 {left: calc(50%);}
+.frame > #btn3 {left: calc(50% + 200px);}
+
+.disappear {
+  display: none;
 }
 
 
-.artist {
-  position: absolute;
-  top:-50%; left:;
+.frame .result {
+  display: none;
 
-  z-index: 1;
+  position: absolute;
+  top:50%; left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-size: 40px;
+}
+
+.artist, .title {
+  position: absolute;
+  top:50%; left: 50%;
+  transform: translate(-50%, -50%);
 }
