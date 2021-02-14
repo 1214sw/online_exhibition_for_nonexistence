@@ -3,13 +3,16 @@ function getnumber(min,max){
 }
 
 $(document).ready(function(){
-    window.scrollBy(getnumber(2534,6485),getnumber(3456,5456));
+    window.scrollTo(getnumber(2534,6485),getnumber(3456,5456));
 })
 
 
 var sample_txt = $('.container').html();
-var RIOT = `<div class = "container-item item-4"><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1></div>`
-var Boogie_Woogie = `<div class = "container-item item-7"><h1>Boogie-Woogie-Boogie-Woogie</h1></div>`
+var splitted = sample_txt.split(`<div class = "container-item">`);
+alert(sample_txt);
+alert(splitted);
+var RIOT = `<div class = "container-item"><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1></div>`
+var Boogie_Woogie = `<div class = "container-item"><h1>Boogie-Woogie-Boogie-Woogie</h1></div>`
 var n=6;
 
 for(var i = 0; i<n; i++){

@@ -66,6 +66,9 @@ body{
 	line-height: 70%;
 }
 
+.container-item h1:hover{
+	color: #455396;
+}
 
 .container-item h1:nth-child(2n+1){
 	color: pink;
