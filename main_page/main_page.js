@@ -7,17 +7,20 @@ $(document).ready(function(){
 })
 
 
+function imageLine(i){
+    return `<div class = "container-item"><img src = "../art work/art${i}.jpg"></div>`
+}
+
 var sample_txt = $('.container').html();
-var splitted = sample_txt.split(`<div class = "container-item">`);
-alert(sample_txt);
-alert(splitted);
 var RIOT = `<div class = "container-item"><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1></div>`
 var Boogie_Woogie = `<div class = "container-item"><h1>Boogie-Woogie-Boogie-Woogie</h1></div>`
-var n=6;
+var n=5;
 
 for(var i = 0; i<n; i++){
-    document.querySelector('.container').innerHTML = document.querySelector('.container').innerHTML + RIOT + document.querySelector('.container').innerHTML+ document.querySelector('.container').innerHTML+ Boogie_Woogie.repeat(i) + document.querySelector('.container').innerHTML;
+    document.querySelector('.container').innerHTML = document.querySelector('.container').innerHTML + RIOT + imageLine(2)+ document.querySelector('.container').innerHTML+ document.querySelector('.container').innerHTML+ Boogie_Woogie.repeat(i) + document.querySelector('.container').innerHTML;
 };
+
+document.querySelector('.container').insertAdjacentHTML('beforeEnd', imageLine(3))
 
 
 /*Totop, Toleft */
