@@ -1,5 +1,5 @@
 function btn_click(){
-  alert('Hello World!');
+  alert(window.location.search);
   // btns[0].style.backgroundColor = 'gray';
 }
 

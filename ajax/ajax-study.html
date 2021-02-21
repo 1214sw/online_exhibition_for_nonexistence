@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>AJAX - WEB</title>
+  </head>
+  <body>
+    <input type="button" name="fetch button" value="fetch" onclick="
+      alert(1);
+      fetch('html').then(function(res){
+        alert(2);
+        res.text().then(function(text){
+          document.querySelector('article').innerHTML = text;
+        })
+      })
+    ">
+
+    <article class="">
+      No Article Now.
+    </article>
+
+  </body>
+</html>
