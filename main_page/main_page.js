@@ -11,16 +11,31 @@ function imageLine(i){
     return `<div class = "container-item"><img src = "../art work/art${i}.jpg"></div>`
 }
 
-var sample_txt = $('.container').html();
+var sample_txt = `
+    <div class = "container-item"><img src = "../art work/art1.jpg"></div>
+    <div class = "container-item"><img src = "../art work/art2.jpg"></div>
+    <div class = "container-item"><img src = "../art work/art13.jpg"></div>
+    <div class = "container-item"><h2>O, wat a great new world!</h2></div>
+    <div class = "container-item"><img src = "../art work/art3.jpg"></div>
+    <div class = "container-item"><img src = "../art work/art8.jpg"></div>
+    <div class = "container-item"><img src = "../art work/art9.jpg"></div>
+    <div class = "container-item"><img src = "../art work/art10.jpg"></div>
+    <div class = "container-item"><img src = "../art work/art11.jpg"></div>
+    <div class = "container-item"><h1>GALLERY</h1> <h1>GALLERY</h1> <h1>GALLERY GALLERY GALLERY</h1></div>
+    <div class = "container-item"><img src = "../art work/art4.jpg"></h1></div>
+    <div class = "container-item"><img src = "../art work/art5.jpg"></div>
+    <div class = "container-item"><img src = "../art work/art14.jpg"></div>
+    <div class = "container-item"><img src = "../art work/art6.jpg"></div>
+    <div class = "container-item"><img src = "../art work/art12.jpg"></div>
+    <div class = "container-item"><img src = "../art work/art7.jpg"></div>`;
+
 var RIOT = `<div class = "container-item"><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1></div>`
 var Boogie_Woogie = `<div class = "container-item"><h1>Boogie-Woogie-Boogie-Woogie</h1></div>`
 var n=5;
 
 for(var i = 0; i<n; i++){
-    document.querySelector('.container').innerHTML = document.querySelector('.container').innerHTML + RIOT + imageLine(2)+ document.querySelector('.container').innerHTML+ document.querySelector('.container').innerHTML+ Boogie_Woogie.repeat(i) + document.querySelector('.container').innerHTML;
+    document.querySelector('.container').innerHTML = sample_txt + sample_txt+ document.querySelector('.container').innerHTML+ RIOT + imageLine(2)+sample_txt +document.querySelector('.container').innerHTML+ document.querySelector('.container').innerHTML+ Boogie_Woogie.repeat(i) + document.querySelector('.container').innerHTML+ sample_txt;
 };
-
-document.querySelector('.container').insertAdjacentHTML('beforeEnd', imageLine(3))
 
 
 /*Totop, Toleft */
@@ -56,3 +71,6 @@ $(".to-left").click(function(){
   alert("Elevator Down!");
   window.scrollBy(-203,5930);
 });
+
+
+/* Speed Limit */
