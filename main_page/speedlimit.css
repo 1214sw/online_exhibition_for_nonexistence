@@ -2,7 +2,7 @@
 .speedlimit{
     background: white;
     position: fixed;
-    bottom: 32px;
+    bottom: 16px;
     left: 32px;
     width: 60px;
     height: 60px;
@@ -15,9 +15,17 @@
     font-weight: 800;
     color: #1f1f1f;
     text-decoration: none;
-    cursor: help;
+    pointer-events: none;
+    opacity: 0;
     transition: all .5s cubic-bezier(1, 0.08, 0.74, 1.27);
     letter-spacing: -1px;
+}
+
+.speedlimit.active{
+    bottom: 32px;
+    pointer-events: auto;
+    cursor: help;
+    opacity: 1;
 }
 
 

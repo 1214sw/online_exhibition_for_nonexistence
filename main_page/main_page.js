@@ -122,18 +122,26 @@ var checkXScrollSpeed = (function(settings){
 })();
 
 var modal = document.getElementById("SpeedModal");
+var speedlimit = document.querySelector(".speedlimit")
+var container = document.querySelector(".container");
 var scrollCounter= 0;
+
+$(document).ready(function(){
+    speedlimit.classList.add("active");
+})
 
 // listen to "scroll" event
 window.onscroll = function(){
     scrollCounter += 1;
-    if (((Math.abs(checkYScrollSpeed()) >100) || (Math.abs(checkXScrollSpeed())>100))&&(scrollCounter>3)){
+    if ((Math.abs(checkYScrollSpeed()) >100) || (Math.abs(checkXScrollSpeed())>100)){
+        if(scrollCounter>3){
          console.log('Speed Limit');
          modal.style.display = "block";
+         document.body.style.overflow = "hidden";
+        }
     }
 };
 
-window.addEventListener("button")
 
 
 
