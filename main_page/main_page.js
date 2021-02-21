@@ -51,7 +51,6 @@ window.addEventListener("scroll", () => {
         toTop.classList.remove("active");
     }
 })
-
 window.addEventListener("scroll", () => {
     if (window.pageXOffset > 100){
         toLeft.classList.add("active");
@@ -59,7 +58,6 @@ window.addEventListener("scroll", () => {
         toLeft.classList.remove("active");
     }
 })
-
 
 
 $(".to-top").click(function(){
@@ -74,3 +72,68 @@ $(".to-left").click(function(){
 
 
 /* Speed Limit */
+
+var checkYScrollSpeed = (function(settings){
+    settings = settings || {};
+    var lastPos, newPos, timer, delta, 
+        delay = settings.delay || 50; // in "ms" (higher means lower fidelity )
+
+    function clear() {
+      lastPos = null;
+      delta = 0;
+    }
+
+    clear();
+
+    return function(){
+      newPos = window.scrollY;
+      if ( lastPos != null ){ // && newPos < maxScroll 
+        delta = newPos -  lastPos;
+      }
+      lastPos = newPos;
+      clearTimeout(timer);
+      timer = setTimeout(clear, delay);
+      return delta;
+    };
+})();
+
+var checkXScrollSpeed = (function(settings){
+    settings = settings || {};
+    var lastPos, newPos, timer, delta, 
+        delay = settings.delay || 50; // in "ms" (higher means lower fidelity )
+    function clear() {
+      lastPos = null;
+      delta = 0;
+    }
+
+    clear();
+
+    return function(){
+      newPos = window.scrollX;
+      if ( lastPos != null ){ // && newPos < maxScroll 
+        delta = newPos -  lastPos;
+      }
+      lastPos = newPos;
+      clearTimeout(timer);
+      timer = setTimeout(clear, delay);
+      return delta;
+    };
+
+})();
+
+var modal = document.getElementById("SpeedModal");
+var scrollCounter= 0;
+
+// listen to "scroll" event
+window.onscroll = function(){
+    scrollCounter += 3;
+    if (((Math.abs(checkYScrollSpeed()) >100) || (Math.abs(checkXScrollSpeed())>100))&&(scrollCounter>1)){
+         console.log('Speed Limit');
+         modal.style.display = "block";
+    }
+};
+
+
+
+
+
