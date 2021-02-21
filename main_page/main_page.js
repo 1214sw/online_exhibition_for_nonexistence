@@ -132,16 +132,16 @@ $(document).ready(function(){
 
 // listen to "scroll" event
 window.onscroll = function(){
-    scrollCounter += 1;
     if ((Math.abs(checkYScrollSpeed()) >100) || (Math.abs(checkXScrollSpeed())>100)){
+        scrollCounter += 1;
         if(scrollCounter>3){
          console.log('Speed Limit');
-         modal.style.display = "block";
+         modal.classList.add("active");
          document.body.style.overflow = "hidden";
          speedlimit.classList.add("flash");
          setTimeout(function(){
             speedlimit.classList.remove("flash");
-         }, 1000);
+         }, 1300); 
         }
     }
 };
