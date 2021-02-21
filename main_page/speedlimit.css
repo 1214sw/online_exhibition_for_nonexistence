@@ -1,0 +1,23 @@
+
+.speedlimit{
+    background: white;
+    position: fixed;
+    bottom: 32px;
+    left: 32px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 7px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 800;
+    color: #1f1f1f;
+    text-decoration: none;
+    cursor: help;
+    transition: all .5s cubic-bezier(1, 0.08, 0.74, 1.27);
+    letter-spacing: -1px;
+}
+
+

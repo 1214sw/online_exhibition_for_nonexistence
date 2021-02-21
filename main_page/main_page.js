@@ -126,13 +126,14 @@ var scrollCounter= 0;
 
 // listen to "scroll" event
 window.onscroll = function(){
-    scrollCounter += 3;
-    if (((Math.abs(checkYScrollSpeed()) >100) || (Math.abs(checkXScrollSpeed())>100))&&(scrollCounter>1)){
+    scrollCounter += 1;
+    if (((Math.abs(checkYScrollSpeed()) >100) || (Math.abs(checkXScrollSpeed())>100))&&(scrollCounter>3)){
          console.log('Speed Limit');
          modal.style.display = "block";
     }
 };
 
+window.addEventListener("button")
 
 
 
