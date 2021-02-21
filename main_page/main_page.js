@@ -138,6 +138,10 @@ window.onscroll = function(){
          console.log('Speed Limit');
          modal.style.display = "block";
          document.body.style.overflow = "hidden";
+         speedlimit.classList.add("flash");
+         setTimeout(function(){
+            speedlimit.classList.remove("flash");
+         }, 1000);
         }
     }
 };
