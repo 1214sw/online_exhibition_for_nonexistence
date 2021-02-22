@@ -70,7 +70,7 @@
 .modal{
 	display: block;
 	position: fixed;
-	background-color: #a5643d;
+	background-color: #e6bba1;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -126,6 +126,7 @@
 	margin: 25px 0;
 	font-size: 0.9em;
 	min-width: 400px;
+	text-align: center;
 }
 
 .modal .button button{
@@ -133,4 +134,12 @@
 	width: 80%;
 	padding: 10px 10px;
 	text-transform: uppercase;
+	cursor: pointer;
+	border: 2px solid black;
+	border-radius: 5px;
+
+}
+
+.modal .button button:hover{
+	background-color: rgb(153, 131, 58);
 }
