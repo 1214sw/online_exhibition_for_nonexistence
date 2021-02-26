@@ -29,7 +29,7 @@ var sample_txt = `
     <div class = "container-item"><img src = "../art work/art12.jpg"></div>
     <div class = "container-item"><img src = "../art work/art7.jpg"></div>`;
 
-var RIOT = `<div class = "container-item"><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1></div>`
+var RIOT = `<div class = "container-item"><h1><a href = "../RIOT/riot.html">RIOTRIOT</a></h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1></div>`
 var Boogie_Woogie = `<div class = "container-item"><h1>Boogie-Woogie-Boogie-Woogie</h1></div>`
 var n=5;
 
@@ -76,7 +76,7 @@ $(".to-left").click(function(){
 var checkYScrollSpeed = (function(settings){
     settings = settings || {};
     var lastPos, newPos, timer, delta, 
-        delay = settings.delay || 50; // in "ms" (higher means lower fidelity )
+        delay = settings.delay || 1000; // in "ms" (higher means lower fidelity )
 
     function clear() {
       lastPos = null;
@@ -100,7 +100,7 @@ var checkYScrollSpeed = (function(settings){
 var checkXScrollSpeed = (function(settings){
     settings = settings || {};
     var lastPos, newPos, timer, delta, 
-        delay = settings.delay || 50; // in "ms" (higher means lower fidelity )
+        delay = settings.delay || 1000; // in "ms" (higher means lower fidelity )
     function clear() {
       lastPos = null;
       delta = 0;
@@ -130,21 +130,36 @@ $(document).ready(function(){
     speedlimit.classList.add("active");
 })
 
+
 // listen to "scroll" event
-window.onscroll = function(){
+setInterval(function(){
+    window.onscroll = function(){
+    console.log(checkYScrollSpeed());
     if ((Math.abs(checkYScrollSpeed()) >100) || (Math.abs(checkXScrollSpeed())>100)){
         scrollCounter += 1;
-        if(scrollCounter>3){
-         console.log('Speed Limit');
+        if(scrollCounter == 2){
+            speedlimit.classList.add("flash");
+        }
+        if(scrollCounter == 3){
+            speedlimit.classList.add("centerflash");
+            setTimeout(function(){
+                speedlimit.classList.remove("centerflash");
+            }, 2000);
+        }
+
+        else if(scrollCounter>5){
+         console.log('Speed Limit')
+         speedlimit.classList.add("centerflash");
          modal.classList.add("active");
          document.body.style.overflow = "hidden";
-         speedlimit.classList.add("flash");
          setTimeout(function(){
-            speedlimit.classList.remove("flash");
+            speedlimit.classList.remove("centerflash");
          }, 1300); 
         }
     }
 };
+}, 3000);
+
 
 
 
