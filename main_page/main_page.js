@@ -6,6 +6,9 @@ $(document).ready(function(){
     window.scrollTo(getnumber(2534,6485),getnumber(3456,5456));
 })
 
+/*$(window).on("load", function(){
+    $(".loader-wrapper").fadOut("slow");
+});*/
 
 function imageLine(i){
     return `<div class = "container-item"><img src = "../art work/art${i}.jpg"></div>`
@@ -132,33 +135,32 @@ $(document).ready(function(){
 
 
 // listen to "scroll" event
-setInterval(function(){
-    window.onscroll = function(){
+
+window.onscroll = function(){
     console.log(checkYScrollSpeed());
     if ((Math.abs(checkYScrollSpeed()) >100) || (Math.abs(checkXScrollSpeed())>100)){
         scrollCounter += 1;
         if(scrollCounter == 2){
             speedlimit.classList.add("flash");
         }
-        if(scrollCounter == 3){
+        /*if(scrollCounter == 3){
             speedlimit.classList.add("centerflash");
             setTimeout(function(){
                 speedlimit.classList.remove("centerflash");
             }, 2000);
-        }
+        }*/
 
-        else if(scrollCounter>5){
-         console.log('Speed Limit')
-         speedlimit.classList.add("centerflash");
-         modal.classList.add("active");
-         document.body.style.overflow = "hidden";
-         setTimeout(function(){
+        else if(scrollCounter>3){
+            speedlimit.classList.add("centerflash");
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden";
+            setTimeout(function(){
             speedlimit.classList.remove("centerflash");
-         }, 1300); 
+            }, 2000); 
         }
     }
 };
-}, 3000);
+
 
 
 
