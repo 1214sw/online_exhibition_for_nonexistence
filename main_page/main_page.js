@@ -2,13 +2,6 @@ function getnumber(min,max){
     return Math.random()*(max-min)+min
 }
 
-$(document).ready(function(){
-    window.scrollTo(getnumber(2534,6485),getnumber(3456,5456));
-})
-
-/*$(window).on("load", function(){
-    $(".loader-wrapper").fadOut("slow");
-});*/
 
 function imageLine(i){
     return `<div class = "container-item"><img src = "../art work/art${i}.jpg"></div>`
@@ -39,6 +32,11 @@ var n=5;
 for(var i = 0; i<n; i++){
     document.querySelector('.container').innerHTML = sample_txt + sample_txt+ document.querySelector('.container').innerHTML+ RIOT + imageLine(2)+sample_txt +document.querySelector('.container').innerHTML+ document.querySelector('.container').innerHTML+ Boogie_Woogie.repeat(i) + document.querySelector('.container').innerHTML+ sample_txt;
 };
+
+
+$(window).load(function(){
+    $('.container').hide();
+});
 
 
 /*Totop, Toleft */
