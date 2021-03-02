@@ -4,55 +4,32 @@
     <meta charset="utf-8">
     <title>For Nonexistence</title>
     <link rel="stylesheet" href="gallery.css">
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/2b1d602d94.js" crossorigin="anonymous"></script>
+    <script>
+      var max_id = 9;
+      var art_id = Math.floor(Math.random() * max_id) + 1;
+    </script>
   </head>
   <body>
     <a href="index.html">
-      <div class="logo">
-        <h1>For Nonexistence</h1>
-      </div>
+      <h1>For Nonexistence</h1>
     </a>
 
-    <div class="frame">
-      <a onclick ="ImageClick()">
-        <img src="image/jjmokoo1.jpg" id="artwork" z-index=0>
-      </a>
+    <input type="button" value="test button" class="test" onclick="alert(art_id)"></button>
 
+    <div class="max-frame">
+      <script>document.write(`<img src="art work/art${art_id}.jpg">`);</script>
+      <h2 class='info_msg'>
+        CLICK TO GUESS TITLE
+      </h2>
 
-      <input type="button" class="button" id="btn1" value="Whale" onclick='
-        titleSelect(this)
-      '>
-      <input type="button" class="button" id="btn2" value="Swimming" onclick='
-        titleSelect(this)
-      '>
-      <input type="button" class="button" id="btn3" value="Dot" onclick='
-        titleSelect(this)
-      '>
-
-      <div class="result">
-        Answer is...
-        <div class="artist">
-          Jun Mo
-        </div>
-        <div class="title">
-          Inner Peace
-        </div>
-      </div>
-
-
+      <h2 class='choice'>
+        <p class="title title1">TITLE1</p>
+        <p class="title title2">Blh</p>
+        <p class="title title3">UNODOSTRESSSS</p>
+      </h2>
     </div>
-
-
-    <button type="button" name="button"
-    onclick="btn_click()"
-    style="
-      position: absolute;
-      width: 200px; height:120px;
-      top:20px; right:20px;
-    "
-    >Button</button>
-
     <script type="text/javascript" src="gallery.js"></script>
   </body>
 </html>
