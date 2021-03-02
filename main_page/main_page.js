@@ -41,49 +41,8 @@ for(var i = 0; i<n; i++){
     document.querySelector('.container').innerHTML = sample_txt + sample_txt+ document.querySelector('.container').innerHTML+ RIOT + imageLine(2)+sample_txt +document.querySelector('.container').innerHTML+ document.querySelector('.container').innerHTML+ Boogie_Woogie.repeat(i) + document.querySelector('.container').innerHTML+ sample_txt;
 };
 
-
-
-$(window).on('load', function(){
-    window.scrollBy(2456,53635);
-    setTimeout(function(){
-        $(".loader-wrapper").hide();
-    },2000)
-});
-
-/*Totop, Toleft */
-
 const toTop = document.querySelector(".to-top")
 const toLeft = document.querySelector(".to-left")
-
-
-window.addEventListener("scroll", () => {
-    if (window.pageYOffset > 100){
-        toTop.classList.add("active");
-    } else{
-        toTop.classList.remove("active");
-    }
-})
-window.addEventListener("scroll", () => {
-    if (window.pageXOffset > 100){
-        toLeft.classList.add("active");
-    } else{
-        toLeft.classList.remove("active");
-    }
-})
-
-
-$(".to-top").click(function(){
-  alert("Elevator Up!");
-  window.scrollBy(0,getnumber(-13556,-25));
-});
-
-$(".to-left").click(function(){
-  alert("Elevator Down!");
-  window.scrollBy(-203,5930);
-});
-
-
-/* Speed Limit */
 
 var checkYScrollSpeed = (function(settings){
     settings = settings || {};
@@ -133,13 +92,42 @@ var checkXScrollSpeed = (function(settings){
 
 })();
 
+
 var modal = document.getElementById("SpeedModal");
 var speedlimit = document.querySelector(".speedlimit")
 var container = document.querySelector(".container");
 var scrollCounter= 0;
 
-$(document).ready(function(){
-    speedlimit.classList.add("active");
+$(window).on('load', function(){
+    window.scrollBy(2456,53635);
+    setTimeout(function(){
+        $(".loader-wrapper").hide();
+        window.addEventListener("scroll", () => {
+            if (window.pageYOffset > 100){
+                toTop.classList.add("active");
+            } else{
+                toTop.classList.remove("active");
+            }
+        });
+        window.addEventListener("scroll", () => {
+            if (window.pageXOffset > 100){
+                toLeft.classList.add("active");
+            } else{
+                toLeft.classList.remove("active");
+            }
+        });
+        $(".to-top").click(function(){
+          alert("Elevator Up!");
+          window.scrollBy(0,getnumber(-13556,-25));
+        });
+
+        $(".to-left").click(function(){
+          alert("Elevator Down!");
+          window.scrollBy(-203,5930);
+        });
+
+    },2000);
+
     setTimeout(function(){
         $(window).scroll(function(){
         console.log(checkYScrollSpeed());
@@ -169,36 +157,13 @@ $(document).ready(function(){
     }
     })
     }, 5000);
-})
+
+});
+
+/*Totop, Toleft */
 
 
-// listen to "scroll" event
-/*
-window.onscroll = function(){
-    console.log(checkYScrollSpeed());
-    if ((Math.abs(checkYScrollSpeed()) >100) || (Math.abs(checkXScrollSpeed())>100)){
-        scrollCounter += 1;
-        if(scrollCounter == 2){
-            speedlimit.classList.add("flash");
-        }
-        /*if(scrollCounter == 3){
-            speedlimit.classList.add("centerflash");
-            setTimeout(function(){
-                speedlimit.classList.remove("centerflash");
-            }, 2000);
-        }
 
-        else if(scrollCounter>3){
-            speedlimit.classList.add("centerflash");
-            modal.classList.add("active");
-            document.body.style.overflow = "hidden";
-            setTimeout(function(){
-            speedlimit.classList.remove("centerflash");
-            }, 2000); 
-        }
-    }
-};
-*/
 
 
 
