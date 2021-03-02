@@ -7,6 +7,14 @@ function imageLine(i){
     return `<div class = "container-item"><img src = "../art work/art${i}.jpg"></div>`
 }
 
+function earthquake(i){
+    var positionX = window.pageXOffset;
+    var positionY = window.pageYOffset;
+    for (let j=0; j<i; j++){
+        window.scrollBy(getnumber(35,46),64);
+    }
+};
+
 var sample_txt = `
     <div class = "container-item"><img src = "../art work/art1.jpg"></div>
     <div class = "container-item"><img src = "../art work/art2.jpg"></div>
@@ -34,10 +42,13 @@ for(var i = 0; i<n; i++){
 };
 
 
-$(window).load(function(){
-    $('.container').hide();
-});
 
+$(window).on('load', function(){
+    window.scrollBy(2456,53635);
+    setTimeout(function(){
+        $(".loader-wrapper").hide();
+    },2000)
+});
 
 /*Totop, Toleft */
 
@@ -129,16 +140,15 @@ var scrollCounter= 0;
 
 $(document).ready(function(){
     speedlimit.classList.add("active");
-})
-
-
-// listen to "scroll" event
-
-window.onscroll = function(){
-    console.log(checkYScrollSpeed());
-    if ((Math.abs(checkYScrollSpeed()) >100) || (Math.abs(checkXScrollSpeed())>100)){
+    setTimeout(function(){
+        $(window).scroll(function(){
+        console.log(checkYScrollSpeed());
+        if ((Math.abs(checkYScrollSpeed()) >100) || (Math.abs(checkXScrollSpeed())>100)){
         scrollCounter += 1;
-        if(scrollCounter == 2){
+        if(scrollCounter == 1){
+            earthquake(305);
+        }
+        else if(scrollCounter == 2){
             speedlimit.classList.add("flash");
         }
         /*if(scrollCounter == 3){
@@ -157,8 +167,38 @@ window.onscroll = function(){
             }, 2000); 
         }
     }
-};
+    })
+    }, 5000);
+})
 
+
+// listen to "scroll" event
+/*
+window.onscroll = function(){
+    console.log(checkYScrollSpeed());
+    if ((Math.abs(checkYScrollSpeed()) >100) || (Math.abs(checkXScrollSpeed())>100)){
+        scrollCounter += 1;
+        if(scrollCounter == 2){
+            speedlimit.classList.add("flash");
+        }
+        /*if(scrollCounter == 3){
+            speedlimit.classList.add("centerflash");
+            setTimeout(function(){
+                speedlimit.classList.remove("centerflash");
+            }, 2000);
+        }
+
+        else if(scrollCounter>3){
+            speedlimit.classList.add("centerflash");
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden";
+            setTimeout(function(){
+            speedlimit.classList.remove("centerflash");
+            }, 2000); 
+        }
+    }
+};
+*/
 
 
 
