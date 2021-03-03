@@ -11,7 +11,7 @@ function earthquake(i){
     var positionX = window.pageXOffset;
     var positionY = window.pageYOffset;
     for (let j=0; j<i; j++){
-        window.scrollBy(getnumber(35,46),64);
+        window.scrollBy(getnumber(35,46),getnumber(-24,42));
     }
 };
 
@@ -41,8 +41,8 @@ for(var i = 0; i<n; i++){
     document.querySelector('.container').innerHTML = sample_txt + sample_txt+ document.querySelector('.container').innerHTML+ RIOT + imageLine(2)+sample_txt +document.querySelector('.container').innerHTML+ document.querySelector('.container').innerHTML+ Boogie_Woogie.repeat(i) + document.querySelector('.container').innerHTML+ sample_txt;
 };
 
-const toTop = document.querySelector(".to-top")
-const toLeft = document.querySelector(".to-left")
+const toTop = document.querySelector(".to-top");
+const toLeft = document.querySelector(".to-left");
 
 var checkYScrollSpeed = (function(settings){
     settings = settings || {};
@@ -102,6 +102,8 @@ $(window).on('load', function(){
     window.scrollBy(2456,53635);
     setTimeout(function(){
         $(".loader-wrapper").hide();
+        $(".speedlimit").addClass("active");
+        $(".earthquake").addClass("active");
         window.addEventListener("scroll", () => {
             if (window.pageYOffset > 100){
                 toTop.classList.add("active");
@@ -109,13 +111,14 @@ $(window).on('load', function(){
                 toTop.classList.remove("active");
             }
         });
+        /*
         window.addEventListener("scroll", () => {
             if (window.pageXOffset > 100){
                 toLeft.classList.add("active");
             } else{
                 toLeft.classList.remove("active");
             }
-        });
+        });*/
         $(".to-top").click(function(){
           alert("Elevator Up!");
           window.scrollBy(0,getnumber(-13556,-25));
@@ -125,14 +128,18 @@ $(window).on('load', function(){
           alert("Elevator Down!");
           window.scrollBy(-203,5930);
         });
+        $(".earthquake").click(function(){
+            earthquake(450);
+        });
 
     },2000);
 
     setTimeout(function(){
         $(window).scroll(function(){
-        console.log(checkYScrollSpeed());
+        /*console.log(checkYScrollSpeed());*/
         if ((Math.abs(checkYScrollSpeed()) >100) || (Math.abs(checkXScrollSpeed())>100)){
         scrollCounter += 1;
+        console.log(scrollCounter);
         if(scrollCounter == 1){
             earthquake(305);
         }

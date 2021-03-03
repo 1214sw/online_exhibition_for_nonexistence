@@ -26,9 +26,37 @@ html{
     bottom: 32px;
     pointer-events: auto;
     opacity: 1;
+    cursor: pointer;
 }
 
 .to-left{
+    background: white;
+    position: fixed;
+    bottom: 16px;
+    right: -96px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color:#1f1f1f;
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: 0;
+    transition: all .5s cubic-bezier(1, 0.08, 0.74, 1.27);
+}
+
+.to-left.active{
+    right: 96px;
+    bottom: 32px;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.earthquake{
     background: white;
     position: fixed;
     bottom: 16px;
@@ -48,8 +76,9 @@ html{
     transition: all .5s cubic-bezier(1, 0.08, 0.74, 1.27);
 }
 
-.to-left.active{
+.earthquake.active{
     bottom: 32px;
     pointer-events: auto;
     opacity: 1;
+    cursor: pointer;
 }
