@@ -1,35 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
+<html>
+
+<head>
+    <meta charset="UTF-8">
     <title>For Nonexistence</title>
-    <link rel="stylesheet" href="gallery.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/2b1d602d94.js" crossorigin="anonymous"></script>
-    <script>
-      var max_id = 9;
-      var art_id = Math.floor(Math.random() * max_id) + 1;
-    </script>
-  </head>
-  <body>
-    <a href="index.html">
-      <h1>For Nonexistence</h1>
-    </a>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <input type="button" value="test button" class="test" onclick="alert(art_id)"></button>
+  <link rel="stylesheet" href="gallery.css">
+  <script src='gallery_head.js'></script>
+</head>
 
-    <div class="max-frame">
-      <script>document.write(`<img src="art work/art${art_id}.jpg">`);</script>
-      <h2 class='info_msg'>
-        CLICK TO GUESS TITLE
-      </h2>
+<body>
 
-      <h2 class='choice'>
-        <p class="title title1">TITLE1</p>
-        <p class="title title2">Blh</p>
-        <p class="title title3">UNODOSTRESSSS</p>
-      </h2>
-    </div>
-    <script type="text/javascript" src="gallery.js"></script>
-  </body>
+    <header>
+        <a id="title" href="index.html">
+            <i class="fas fa-not-equal"></i>
+            <h2>FOR NONEXISTENCE</h2>
+        </a>
+    </header>
+
+    <main>
+        <div class="maxframe">
+            <img src="" alt="">
+        </div>
+        <div id="info">
+            <p class="artist">artist</p>
+            <p class="title">title</p>
+        </div>
+    </main>
+
+    <footer>
+        <input id="next_button" type="button" value="next" onclick="NextArt()">
+        
+    </footer>
+    
+    <script src='gallery_foot.js'></script>
+</body>
+
 </html>
