@@ -7,12 +7,37 @@ function imageLine(i){
     return `<div class = "container-item"><img src = "../art work/art${i}.jpg"></div>`
 }
 
+const scrollElement = window.document.scrollingElement || window.document.body || window.document.documentElement;
+
 function earthquake(i){
     var positionX = window.pageXOffset;
     var positionY = window.pageYOffset;
-    for (let j=0; j<i; j++){
-        setInterval(window.scrollBy(getnumber(35,46),getnumber(-24,42)), 100);
-    }
+    anime({
+            targets: '.container',
+            translateX: 100,
+            translateY: -10,
+            duration: 300
+        });
+    anime({
+            targets: '.container',
+            translateX: 10,
+            translateY: -10,
+            duration: 300
+        });
+    anime({
+            targets: '.container',
+            translateX: 10,
+            translateY: -10,
+            duration: 300
+        });
+    /*for (let j=0; j<i; j++){
+        anime({
+            targets: scrollElement,
+            translateX: 30,
+            translateY: -30,
+            duration: 300
+        });
+    }*/
 };
 
 var sample_txt = `
@@ -99,7 +124,7 @@ var container = document.querySelector(".container");
 var scrollCounter= 0;
 
 $(window).on('load', function(){
-    window.scrollBy(2456,53635);
+    window.scrollBy(getnumber(2456,4563),getnumber(3565,5363));
     setTimeout(function(){
         $(".loader-wrapper").hide();
         $(".speedlimit").addClass("active");
@@ -111,14 +136,6 @@ $(window).on('load', function(){
                 toTop.classList.remove("active");
             }
         });
-        /*
-        window.addEventListener("scroll", () => {
-            if (window.pageXOffset > 100){
-                toLeft.classList.add("active");
-            } else{
-                toLeft.classList.remove("active");
-            }
-        });*/
         $(".to-top").click(function(){
           alert("Elevator Up!");
           window.scrollBy(0,getnumber(-13556,-25));
