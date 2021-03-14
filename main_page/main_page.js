@@ -9,27 +9,24 @@ function imageLine(i){
 
 const scrollElement = window.document.scrollingElement || window.document.body || window.document.documentElement;
 
-function earthquake(i){
-    var positionX = window.pageXOffset;
-    var positionY = window.pageYOffset;
-    anime({
-            targets: '.container',
-            translateX: 100,
-            translateY: -10,
-            duration: 300
+function earthquake(){
+    $(document).animate({
+        scrollTop: '+= 70'
+    }, 300);
+}
+
+
+/*function earthquake(i){
+
+        anime({
+            targets: '.earthquake',
+            translateX: -50,
+            translateY: getnumber(-2,5),
+            duration: 10,
+            loop: 100
         });
-    anime({
-            targets: '.container',
-            translateX: 10,
-            translateY: -10,
-            duration: 300
-        });
-    anime({
-            targets: '.container',
-            translateX: 10,
-            translateY: -10,
-            duration: 300
-        });
+        console.log("EARTHQUAKE");
+    
     /*for (let j=0; j<i; j++){
         anime({
             targets: scrollElement,
@@ -38,7 +35,7 @@ function earthquake(i){
             duration: 300
         });
     }*/
-};
+
 
 var sample_txt = `
     <div class = "container-item"><img src = "../art work/art1.jpg"></div>
@@ -118,7 +115,7 @@ var checkXScrollSpeed = (function(settings){
 })();
 
 
-var modal = document.getElementById("SpeedModal");
+var modal = document.getElementById("speedmodal");
 var speedlimit = document.querySelector(".speedlimit")
 var container = document.querySelector(".container");
 var scrollCounter= 0;
@@ -146,7 +143,8 @@ $(window).on('load', function(){
           window.scrollBy(-203,5930);
         });
         $(".earthquake").click(function(){
-            earthquake(450);
+            alert("EARTHQUAKE!!!");
+            earthquake();
         });
 
     },2000);
@@ -171,7 +169,18 @@ $(window).on('load', function(){
         }*/
 
         else if(scrollCounter>3){
+            var someDate = new Date();
+            var numberOfDaysToAdd = 30;
+            var newDate = setDate(someDate.getDate() + numberOfDaysToAdd); 
+            console.log(checkYScrollSpeed());
+            console.log(checkXScrollSpeed());
+            var maxspeed = Math.max(checkYScrollSpeed(), checkXScrollSpeed());
+            console.log(maxspeed)
             speedlimit.classList.add("centerflash");
+            document.getElementById("speed").innerHTML = `<p>${maxspeed}</p>`;
+            document.getElementById("date").innerHTML =  `<p>${new Date().toLocaleDateString()}</p>`
+            document.getElementById("futuredate").innerHTML = `<p>${newDate}</p>`
+            document.getElementById("location").innerHTML = `<p>(${window.pageXOffset},${window.pageYOffset})</p>`
             modal.classList.add("active");
             document.body.style.overflow = "hidden";
             setTimeout(function(){

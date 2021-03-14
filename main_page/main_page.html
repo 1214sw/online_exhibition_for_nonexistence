@@ -10,7 +10,6 @@
       <link rel = "stylesheet" href = "../header/real_header.css">
       <script src = "https://kit.fontawesome.com/6e5e61a4a1.js"></script>
       <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-      <script src = "/Users/jeongyoonchoi/node_modules/animejs/lib/anime.min.js"></script>
       <script type = "text/javascript" src="main_page.js" async></script>
  </head>
  <body>
@@ -28,38 +27,57 @@
   <a class="to-left">
     <i class="fas fa-chevron-left"></i> </a>
   
-  <div id = "SpeedModal" class = "modal">
+  <div id = "speedmodal">
     <div class = "modalheader">
-      Speed Limit Exceeded
+      Speeding Violation
     </div>
     <div class = "modalbody">
-      You had exceeded the Speed Limit of our gallery.</br>
-      In order to maintance the of our gallery, </br>
-      We operate the 
+      <h2>Violation Description</h2>
+      <h4>SPEEDING(100px/s over limit)</h4>
+      <p>You had violated the speeding regulation of our gallery.</p>
+      <p>The speeding ticket is issued due to the violation.</p>
     </div>
-    <div class = "modaltable">
-      <table class = "content-table">
-        <tbody>
-          <tr>
-            <th>Your Speed</th>
-            <th> 125</th>
-          </tr>
-          <tr>
-            <th>Fine and Cost</th>
-            <th>50,000 KRW</th>
-          </tr>
-          <tr>
-            <th> Deadeline</th>
-            <th> 2021.05.20</th>
-          </tr>
-        </tbody>
+    <div class = "modaltable1">
+      <table>
+        <tr>
+          <td>Speed Limit</td>
+          <td>100 px/s</td>
+        </tr>
+        <tr>
+          <td>Violated Speed</td>
+          <td id = "speed">126 px/s</td>
+        </tr>
+        <tr>
+          <td>Date of Violation</td>
+          <td id = "date">2021.03.25</td>
+        </tr>
+        <tr>
+          <td>Place of Violation</td>
+          <td id = "location"> (4546,3564)</td>
+        </tr>
       </table>
     </div>
     <div class = "modalwarning">
-      It is extremly unlawful to the deadline of payment.
+      <b>Warning:</b> It is extremly unlawful to exceed the deadline of payment.
     </div>
-    <div class = "button">
-      <button> Proceed for Payment</button>
+    <div class = "modalexpl">
+      <h2>Why do we operate the speedlimit?</h2>
+      We belive in the beauty of slow.
+    </div>
+    <div class = "modaltable2">
+      <table>
+        <tr>
+          <td>Payment Deadline</td>
+          <td id = "futuredate">2021.03.25</td>
+        </tr>
+        <tr>
+          <td>Payment Amount</td>
+          <td> KRW 50,000</td>
+        </tr>
+      </table>
+    </div>
+    <div class = "modalbutton">
+      <p>Proceed to Payment</p>
     </div>
   </div>
 

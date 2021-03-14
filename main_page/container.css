@@ -9,6 +9,7 @@ body{
 	width: 10%; float: left;
 }
 .container{
+	display: relative;
 	margin-top: 100px;
 	margin-left: 100px;
 	display: grid;
