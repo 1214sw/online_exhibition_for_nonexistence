@@ -1,69 +1,94 @@
-input.test {
-  position: absolute;
-  top:30px; right: 30px;
-}
+/******************/
+/* Global Setting */
+/******************/
 
 * {
-  box-sizing: border-box;
+/*  box-sizing: border-box;*/
   margin: 0; padding: 0;
 }
 
-body {
-  background: rgb(40,40,40);
+html, body {
+    color: white;
+    width: 100%; height: 100%;
+    background-color: #202020;
+    text-align: center;
 }
 
-h1 {
-  position: absolute;
-  top:30px; left: 30px;
-
-  font-family: Times;
-  color: powderblue;
-
-  cursor: pointer;
+header {
+    width:100%; height:10%;
 }
 
-.max-frame {
-  position: absolute;
-  top:50%; left: 50%;
-  transform: translate(-50%, -50%);
-
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-
-  width: calc(100% - 200px);
-  height: calc(100% - 200px);
-  /* overflow: hidden; */
-
-  /* border: 3px solid white; */
+main {
+    width:100%; height:80%;
 }
 
-.max-frame img {
-  display:block;
-  position:absolute;
-  top:50%;left:50%;
-  transform: translate(-50%,-50%);
-
-  max-width: 100%; max-height: 100%;
-
-  border: 3px solid green;
-
-  transition: all .3s;
+footer {
+    width:100%; height:10%;
+}
+/******************/
+/* Header Setting */
+/******************/
+#title, #title:visited, #title:hover, #title:active{
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 12px;
 }
 
-.max-frame h2{
-  display: block;
-
-  color: white;
-  font: 30px;
-
-  position: absolute;
-  top:50%;left:50%;
-  transform: translate(-50%,-50%);
+#title i{
+    font-size: 20px;
+    margin-right: 5px;
 }
 
-p.title{
-  display: inline;
-  color: white;
-  display: none;
+#title h2{
+    display: inline;
+}
+
+/******************/
+/* Main Setting */
+/******************/
+
+.maxframe{
+    width:80%; height:100%;
+    display: inline-block;
+    /* border : 1px solid pink; */
+}
+
+.maxframe img {
+    position: absolute;
+    top:0; bottom:0;
+    left:0; right:0;
+    margin: auto;
+    max-width:80%;
+    max-height: 80%;
+}
+
+/******************/
+/* Footer Setting */
+/******************/
+
+#next_button {
+    display: block;
+    position: absolute;
+    bottom:20px; right: 20px;
+
+    width: 50px; height: 50px;
+    border: 0;
+    border-radius: 50%;
+
+    transition: background-color .5s;
+    background-color: rgb(51, 51, 51);
+    color: white;
+
+    cursor: pointer;
+}
+
+#next_button:focus{
+    outline: none;
+    box-shadow: 0 0 0 1px white;
+    background-color: rgb(100, 100, 100);
+}
+
+#next_button.hovering {
+    background-color: rgb(160, 160, 160);
 }
