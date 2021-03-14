@@ -11,7 +11,7 @@ function earthquake(i){
     var positionX = window.pageXOffset;
     var positionY = window.pageYOffset;
     for (let j=0; j<i; j++){
-        window.scrollBy(getnumber(35,46),getnumber(-24,42));
+        setInterval(window.scrollBy(getnumber(35,46),getnumber(-24,42)), 100);
     }
 };
 
