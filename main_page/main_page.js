@@ -151,7 +151,7 @@ $(window).on('load', function(){
 
     setTimeout(function(){
         $(window).scroll(function(){
-        /*console.log(checkYScrollSpeed());*/
+        console.log(checkYScrollSpeed());
         if ((Math.abs(checkYScrollSpeed()) >100) || (Math.abs(checkXScrollSpeed())>100)){
         scrollCounter += 1;
         console.log(scrollCounter);
@@ -171,7 +171,7 @@ $(window).on('load', function(){
         else if(scrollCounter>3){
             var someDate = new Date();
             var numberOfDaysToAdd = 30;
-            var newDate = setDate(someDate.getDate() + numberOfDaysToAdd); 
+            var newDate = new Date(someDate.getDate() + numberOfDaysToAdd); 
             console.log(checkYScrollSpeed());
             console.log(checkXScrollSpeed());
             var maxspeed = Math.max(checkYScrollSpeed(), checkXScrollSpeed());
@@ -183,9 +183,9 @@ $(window).on('load', function(){
             document.getElementById("location").innerHTML = `<p>(${window.pageXOffset},${window.pageYOffset})</p>`
             modal.classList.add("active");
             document.body.style.overflow = "hidden";
-            setTimeout(function(){
+            /*setTimeout(function(){
             speedlimit.classList.remove("centerflash");
-            }, 2000); 
+            }, 2000);*/ 
         }
     }
     })
