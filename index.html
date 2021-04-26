@@ -1,53 +1,89 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title> online_exhibition_for_nonexistence</title>
-    <link rel="stylesheet" href="main_style.css">
-    <link href="header/header.html" rel="import" />
-  </head>
+ <head>
+      <meta charset="utf-8">
+      <title>Main Page</title>
 
-  <body>
-    <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/header/"; inlcude($IPATH."header.html");? >
-    <p><a href="header/header.html">header</a></p>
-    <div class = "title">
-      <h1> We exist for the Nonexistence </h1>
+      <link rel = "stylesheet" href = "to_top.css">
+      <link rel = "stylesheet" href = "container.css">
+      <link rel = "stylesheet" href = "speedlimit.css">
+      <link rel = "stylesheet" href = "../header/real_header.css">
+      <script src = "https://kit.fontawesome.com/6e5e61a4a1.js"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+      <script type = "text/javascript" src="main_page.js" async></script>
+ </head>
+ <body>
+
+
+
+  <div class = "container">
+  </div>
+  <div class = "loader-wrapper">
+    <span class = "loader"><span class="loader-inner">Be Patient</span></span>
+  </div>
+
+  <a class = "speedlimit">100</a>
+  <a class = "earthquake">
+    <i class="fas fa-grip-lines"></i></a>
+  <a class = "to-top">
+    <i class = "fas fa-chevron-up"></i></a>
+  <a class="to-left">
+    <i class="fas fa-chevron-left"></i> </a>
+  
+  <div id = "speedmodal">
+    <div class = "modalheader">
+      <h1>Speeding Violation</h1><br>
     </div>
-
-    <div>
-      <a href="gallery.html"> <h1>Go To Gallery</h1> </a>
+    <div class = "modalbody">
+      <h2>Violation Description</h2>
+      <h4>SPEEDING(100px/s over limit)</h4>
+      <p>You had violated the speeding regulation of our gallery.</p>
+      <p>The speeding ticket is issued due to the violation.</p>
     </div>
-
-    <div id="name_grid">
-      <div class="name">
-        <h2> <a href="jyc/jyc.html">JYC</a> </h2>
-        <h2> <a href="jyc/jyc.html">JYC</a> </h2>
-        <h2> <a href="jmk.html">JYC</a> </h2>
-        <h2> <a href="jyc/jyc.html">JYC</a> </h2>
-        <h2> <a href="jyc/jyc.html">JYC</a> </h2>
-
-      </div>
-
-      <div class="name">
-        <h2> <a href="jmk.html">jmk</a> </h2>
-        <h2> <a href="jmk.html">jmk</a> </h2>
-        <h2> <a href="jyc/jyc.html">jmk</a> </h2>
-        <h2> <a href="jmk.html">jmk</a> </h2>
-        <h2> <a href="jmk.html">jmk</a> </h2>
-      </div>
-
-      <div class="name">
-        <h2> <a href="swh.html">swh</a> </h2>
-        <h2> <a href="swh.html">swh</a> </h2>
-        <h2> <a href="swh.html">swh</a> </h2>
-        <h2> <a href="swh.html">swh</a> </h2>
-        <h2> <a href="swh.html">swh</a> </h2>
-      </div>
+    <div class = "modaltable1">
+      <table>
+        <tr>
+          <td>Speed Limit</td>
+          <td>100 px/s</td>
+        </tr>
+        <tr>
+          <td>Violated Speed</td>
+          <td id = "speed">126 px/s</td>
+        </tr>
+        <tr>
+          <td>Date of Violation</td>
+          <td id = "date">2021.03.25</td>
+        </tr>
+        <tr>
+          <td>Place of Violation</td>
+          <td id = "location"> (4546,3564)</td>
+        </tr>
+      </table>
     </div>
-
-
-    <div id = "img_warhol">
-      <img src="image/Andy Warhol.jpg" width="70%">
+    <div class = "modalwarning">
+      <b>Warning:</b> It is extremly unlawful to exceed the deadline of payment.
     </div>
-  </body>
+    <div class = "modalexpl">
+      <h2>Why do we operate the speedlimit?</h2>
+      We belive in the beauty of slow.
+    </div>
+    <div class = "modaltable2">
+      <table>
+        <tr>
+          <td>Payment Deadline</td>
+          <td id = "futuredate">2021.03.25</td>
+        </tr>
+        <tr>
+          <td>Payment Amount</td>
+          <td> KRW 50,000</td>
+        </tr>
+      </table>
+    </div>
+    <div class = "modalbutton">
+      <p>Proceed to Payment</p>
+    </div>
+  </div>
+
+
+ </body>
 </html>
