@@ -80,6 +80,7 @@ document.querySelector('.container').innerHTML = inner;
 const toTop = document.querySelector(".to-top");
 const toLeft = document.querySelector(".to-left");
 
+
 var checkYScrollSpeed = (function(settings){
     settings = settings || {};
     var lastPos, newPos, timer, delta, 
@@ -165,7 +166,6 @@ $(window).on('load', function(){
 
     setTimeout(function(){
         $(window).scroll(function(){
-        console.log(checkYScrollSpeed());
         if ((Math.abs(checkYScrollSpeed()) >100) || (Math.abs(checkXScrollSpeed())>100)){
         scrollCounter += 1;
         console.log(scrollCounter);
@@ -191,10 +191,6 @@ $(window).on('load', function(){
             var maxspeed = Math.max(checkYScrollSpeed(), checkXScrollSpeed());
             console.log(maxspeed)
             speedlimit.classList.add("centerflash");
-            document.getElementById("speed").innerHTML = `<p>${maxspeed}</p>`;
-            document.getElementById("date").innerHTML =  `<p>${new Date().toLocaleDateString()}</p>`
-            document.getElementById("futuredate").innerHTML = `<p>${newDate}</p>`
-            document.getElementById("location").innerHTML = `<p>(${window.pageXOffset},${window.pageYOffset})</p>`
             modal.classList.add("active");
             document.body.style.overflow = "hidden";
             setTimeout(function(){
