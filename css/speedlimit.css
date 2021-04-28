@@ -9,8 +9,8 @@
 .speedlimit{
     background: white;
     position: fixed;
-    bottom: 16px;
-    left: 32px;
+    bottom: 1vh;
+    left: 1rem;
     width: var(--speedlimit-width);
     height: var(--speedlimit-height);
     border-radius: 50%;
@@ -32,9 +32,9 @@
 }
 
 .speedlimit.active{
-    bottom: 32px;
+    bottom: 2vh;
+	left: 2rem;
     pointer-events: auto;
-    cursor: help;
     opacity: 1;
     transition: all 1s;
 }

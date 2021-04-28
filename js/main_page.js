@@ -1,3 +1,5 @@
+//Contents Loading && Container Creation
+
 function loadFile(filePath) {
     var result = null;
     var xmlhttp = new XMLHttpRequest();
@@ -7,15 +9,18 @@ function loadFile(filePath) {
       result = xmlhttp.responseText;
     }
     return result;
-  }
+}
 
-var num_of_arts = loadFile('../art work/list.csv').split("\n").length;
-var GALLERY = `<div class = "container-item"><h1>GALLERY</h1> <h1>GALLERY</h1> <h1>GALLERY GALLERY GALLERY</h1></div>`
-var RIOT = `<div class = "container-item"><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1></div>`
-var text = ``;
-const getnumber = (min,max) => {return Math.floor(Math.random()*(max-min)+min)};
+function getNumber(min,max){
+    return Math.floor(Math.random()*(max-min)+min)
+}
 
-const text_generator = () =>{
+function textGenerator(){
+    var num_of_arts = loadFile('../art work/list.csv').split("\n").length;
+    var GALLERY = `<div class = "container-item"><h1>GALLERY</h1> <h1>GALLERY</h1> <h1>GALLERY GALLERY GALLERY</h1></div>`
+    var RIOT = `<div class = "container-item"><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1></div>`
+    var text = ``;
+
     const multiplier = (i, text) => {return text.repeat(i)};
     const imageLine = i => {return `<div class = "container-item"><a href="../gallery.html"><img src = "../art work/art${i}.jpg"></a></div>`};
     const listGenerator =  () => {
@@ -28,7 +33,7 @@ const text_generator = () =>{
     const randomListGenerator = (h) =>{
         var text = '';
         for (var i=0;  i<h; i++){
-            text += imageLine(getnumber(1,num_of_arts))
+            text += imageLine(getNumber(1,num_of_arts))
         }
         return text
     }
@@ -45,16 +50,16 @@ const text_generator = () =>{
         return_text += randomListGenerator(2);
     }
     
-    
     return return_text;
 }
 
-const american = text_generator();
-document.querySelector(".container").innerHTML = american;
+function renderContent(){
+    document.querySelector(".container").innerHTML = textGenerator();
+}
 
-const toTop = document.querySelector(".to-top");
-const toLeft = document.querySelector(".to-left");
+renderContent();
 
+//Check X Speed, Check Y Speed, Implement Speed Control, To-Top, To-Left
 
 var checkYScrollSpeed = (function(settings){
     settings = settings || {};
@@ -108,7 +113,6 @@ var checkXScrollSpeed = (function(settings){
 var modal = document.getElementById("speedmodal");
 var speedlimit = document.querySelector(".speedlimit")
 var container = document.querySelector(".container");
-var scrollCounter= 0;
 
 function firstWarning(){
     scrollCounter = 0;
@@ -121,11 +125,10 @@ function firstWarning(){
     }, 2000);
 }
 
-$(window).on('load', function(){
-    window.scrollBy(getnumber(2456,4563),getnumber(3565,5363));
+function toggleClassesAsReady(){
     setTimeout(function(){
-        $(".loader-wrapper").hide();
-        $(".speedlimit").addClass("active");
+        document.querySelector(".loader-wrapper").style.opacity = 0;
+        document.querySelector(".speedlimit").classList.add('active');
         window.addEventListener("scroll", () => {
             if (window.pageYOffset > 100){
                 toTop.classList.add("active");
@@ -135,18 +138,52 @@ $(window).on('load', function(){
                 toLeft.classList.remove("active");
             }
         });
+        document.querySelector(".to-top").addEventListener('click',function(){
+            alert("Button On Strike: We won't take you to the top!");
+            window.scrollBy(0, getNumber(-136,25));
+        });
+        document.querySelector(".to-left").addEventListener('click',function(){
+            alert("Button On Strike: We won't take you to the left!")
+            window.scrollBy(getNumber(-15,34),0);
+        });
+        
+    }, 2000);
+}
+
+function speedControl(){
+    var speedCounter = 0;
+    setTimeout(function(){
+        document.addEventListener('scroll', function(){
+            if(((Math.abs(checkXScrollSpeed))>100) || (Math.abs(checkYScrollSpeed) >100)){
+                speedCounter += 1;
+                console.log(speedCounter);
+            }
+        })
+    }, 5000);
+}
+
+speedControl();
+
+
+document.addEventListener('DOMContentLoaded', function(){
+    console.log('loaded');
+    window.scrollBy(getNumber(2456,4563),getNumber(3565,5363));
+
+})
+
+var scrollCounter = 0;
+$(window).on('load', function(){
+    setTimeout(function(){
+        $(".speedlimit").addClass("active");
+        $(".loader-wrapper").hide();
         $(".to-top").click(function(){
           alert("Elevator Up!");
-          window.scrollBy(0,getnumber(-13556,-25));
+          window.scrollBy(0,getNumber(-13556,-25));
         });
 
         $(".to-left").click(function(){
           alert("Elevator Down!");
           window.scrollBy(-203,5930);
-        });
-        $(".earthquake").click(function(){
-            alert("EARTHQUAKE!!!");
-            earthquake();
         });
 
     },2000);
@@ -156,18 +193,10 @@ $(window).on('load', function(){
         if ((Math.abs(checkYScrollSpeed()) >100) || (Math.abs(checkXScrollSpeed())>100)){
         scrollCounter += 1;
         console.log(scrollCounter);
-        if(scrollCounter == 1){
-            earthquake(305);
-        }
-        else if(scrollCounter == 2){
+        if(scrollCounter == 2){
             speedlimit.classList.add("flash");
         }
-        /*if(scrollCounter == 3){
-            speedlimit.classList.add("centerflash");
-            setTimeout(function(){
-                speedlimit.classList.remove("centerflash");
-            }, 2000);
-        }*/
+
 
         else if(scrollCounter>3){
             var someDate = new Date();
@@ -184,8 +213,6 @@ $(window).on('load', function(){
     }, 5000);
 
 });
-
-/*Totop, Toleft */
 
 
 
