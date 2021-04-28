@@ -135,6 +135,11 @@ var speedlimit = document.querySelector(".speedlimit")
 var container = document.querySelector(".container");
 var scrollCounter= 0;
 
+function firstWarning(){
+    scrollCounter = 0;
+    speedlimit.classList.add("centerflash");
+}
+
 $(window).on('load', function(){
     window.scrollBy(getnumber(2456,4563),getnumber(3565,5363));
     setTimeout(function(){

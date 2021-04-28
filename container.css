@@ -74,8 +74,8 @@ body{
 
 @media screen and (max-width: 500px){
 	.container{
-		grid-template-columns: repeat(97, 15rem);
-		grid-template-rows: repeat(500, 15rem);
+		grid-template-columns: repeat(97, 13rem);
+		grid-template-rows: repeat(500, 13rem);
 	}
 
 	.container-item h1{
