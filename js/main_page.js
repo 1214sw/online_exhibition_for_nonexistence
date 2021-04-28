@@ -1,5 +1,6 @@
-//Contents Loading && Container Creation
+import {waterfall} from './waterfall.js';
 
+//Contents Loading && Container Creation
 function loadFile(filePath) {
     var result = null;
     var xmlhttp = new XMLHttpRequest();
@@ -19,6 +20,7 @@ function textGenerator(){
     var num_of_arts = loadFile('../art work/list.csv').split("\n").length;
     var GALLERY = `<div class = "container-item"><h1>GALLERY</h1> <h1>GALLERY</h1> <h1>GALLERY GALLERY GALLERY</h1></div>`
     var RIOT = `<div class = "container-item"><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1></div>`
+    var WATERFALL = `<div class = "container-item"><canvas class = "waterfall-canvas"></canvas></div>`
     var text = ``;
 
     const multiplier = (i, text) => {return text.repeat(i)};
@@ -38,7 +40,7 @@ function textGenerator(){
         return text
     }
     var j = 5;
-    return_text = '';
+    var return_text = '';
     for (var k =0; k<j; k++){
         return_text += randomListGenerator(7);
         return_text += GALLERY;
@@ -48,16 +50,25 @@ function textGenerator(){
         return_text = multiplier(3, return_text);
         return_text += randomListGenerator(4);
         return_text += randomListGenerator(2);
+        if (k == 2 || k == 3){return_text += WATERFALL;}
     }
     
     return return_text;
 }
+
+
+
 
 function renderContent(){
     document.querySelector(".container").innerHTML = textGenerator();
 }
 
 renderContent();
+
+var canvases = document.querySelectorAll('.waterfall-canvas');
+for(var i = 0; i <canvases.length; i++){
+    waterfall(canvases[i]);
+}
 
 //Check X Speed, Check Y Speed, Implement Speed Control, To-Top, To-Left
 
@@ -125,54 +136,12 @@ function firstWarning(){
     }, 2000);
 }
 
-function toggleClassesAsReady(){
-    setTimeout(function(){
-        document.querySelector(".loader-wrapper").style.opacity = 0;
-        document.querySelector(".speedlimit").classList.add('active');
-        window.addEventListener("scroll", () => {
-            if (window.pageYOffset > 100){
-                toTop.classList.add("active");
-                toLeft.classList.add("active");
-            } else{
-                toTop.classList.remove("active");
-                toLeft.classList.remove("active");
-            }
-        });
-        document.querySelector(".to-top").addEventListener('click',function(){
-            alert("Button On Strike: We won't take you to the top!");
-            window.scrollBy(0, getNumber(-136,25));
-        });
-        document.querySelector(".to-left").addEventListener('click',function(){
-            alert("Button On Strike: We won't take you to the left!")
-            window.scrollBy(getNumber(-15,34),0);
-        });
-        
-    }, 2000);
-}
-
-function speedControl(){
-    var speedCounter = 0;
-    setTimeout(function(){
-        document.addEventListener('scroll', function(){
-            if(((Math.abs(checkXScrollSpeed))>100) || (Math.abs(checkYScrollSpeed) >100)){
-                speedCounter += 1;
-                console.log(speedCounter);
-            }
-        })
-    }, 5000);
-}
-
-speedControl();
-
-
-document.addEventListener('DOMContentLoaded', function(){
-    console.log('loaded');
-    window.scrollBy(getNumber(2456,4563),getNumber(3565,5363));
-
-})
 
 var scrollCounter = 0;
+var strikeCounter = 0;
+
 $(window).on('load', function(){
+    window.scrollBy(getNumber(356,2465),getNumber(657,5675));
     setTimeout(function(){
         $(".speedlimit").addClass("active");
         $(".loader-wrapper").hide();
@@ -196,8 +165,6 @@ $(window).on('load', function(){
         if(scrollCounter == 2){
             speedlimit.classList.add("flash");
         }
-
-
         else if(scrollCounter>3){
             var someDate = new Date();
             var numberOfDaysToAdd = 30;

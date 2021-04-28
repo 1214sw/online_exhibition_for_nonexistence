@@ -9,19 +9,16 @@
       <link rel = "stylesheet" href = "css/speedlimit.css">
       <script src = "https://kit.fontawesome.com/6e5e61a4a1.js"></script>
       <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-      <script type = "text/javascript" src="js/main_page.js" async></script>
+      <script type = "module" src="js/main_page.js" async></script>
  </head>
  <body>
-
-
 
   <div class = "container">
   </div>
   <div class = "loader-wrapper">
     <span class = "loader"><span class="loader-inner">Be Patient</span></span>
   </div>
-
-  <a class = "speedlimit">100</a>
+  <div id = "speedlimit"><a class = "speedlimit">100</a></div>
   <a class = "earthquake">
     <i class="fas fa-grip-lines"></i></a>
   <a class = "to-top">
@@ -30,41 +27,7 @@
     <i class="fas fa-chevron-left"></i> </a>
   
   <div id = "speedmodal">
-    <div class = "modalheader">
-      <h1>Speeding Violation</h1><br>
-    </div>
-    <div class = "modalbody">
-      <h2>Violation Description</h2>
-      <h4>SPEEDING(100px/s over limit)</h4>
-      <p>You had violated the speeding regulation of our gallery.</p>
-      <p>The speeding ticket is issued due to the violation.</p>
-    </div>
-    <div class = "modaltable1">
-      <table>
-        <tr>
-          <td>Speed Limit</td>
-          <td>100 px/s</td>
-        </tr>
-        <tr>
-          <td>Violated Speed</td>
-          <td id = "speed">126 px/s</td>
-        </tr>
-        <tr>
-          <td>Date of Violation</td>
-          <td id = "date">2021.03.25</td>
-        </tr>
-        <tr>
-          <td>Place of Violation</td>
-          <td id = "location"> (4546,3564)</td>
-        </tr>
-      </table>
-    </div>
-    <div class = "modalwarning">
-      <b>Warning:</b> It is extremly unlawful to exceed the deadline of payment.
-    </div>
-    <div class = "modalbutton">
-      <p>Proceed to Payment</p>
-    </div>
+    SpeedModal
   </div>
 
 

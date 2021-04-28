@@ -6,11 +6,19 @@
 	--speedlimit-font-weight: 800;
 	--speedlimit-letter-spacing: -1px;
 }
+
+
+#speedlimit{
+	position: fixed;
+	bottom: 2vh;
+	left: 2vw;
+	top: 88vh;
+	right: 85vw;
+}
 .speedlimit{
     background: white;
     position: fixed;
-    bottom: 1vh;
-    left: 1rem;
+
     width: var(--speedlimit-width);
     height: var(--speedlimit-height);
     border-radius: 50%;
@@ -32,8 +40,6 @@
 }
 
 .speedlimit.active{
-    bottom: 2vh;
-	left: 2rem;
     pointer-events: auto;
     opacity: 1;
     transition: all 1s;
@@ -75,16 +81,14 @@
 
 #speedmodal{
 	position: fixed;
-	grid-template-rows: repeat(6, 10vh);
-	grid-template-columns: repeat(8, 10vw);
-	background-color: #40acad;
 	top: 50%;
 	left: 50%;
+	background-color: white;
 	transform: translate(-50%, -50%);
 	border-radius: 3vw;
 	border: 3px solid black;
-	width: 70vw;
-	height: 60vh;
+	width: 100vw;
+	height: 100vh;
 	font-size: 13px;
 	text-align: center;
 	animation-name: flash;
@@ -94,6 +98,7 @@
 	justify-content: center;
 	align-content: center;
 	display: none;
+	opacity: 0.5;
 }
 
 #speedmodal h2{
@@ -106,93 +111,7 @@
 
 #speedmodal.active{
 	transition: 1s;
-}
-
-.modalheader{
-	font-size: 2em;
-	margin-top: 2vh;
-	margin-bottom: 5vh;
-}
-
-.modalbody{
-}
-
-.modalbody p{
-	margin: 0;
-}
-
-.modaltable1{
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-
-}
-
-.modaltable1 td{
-	padding-left: 3vw;
-	padding-right: 3vw;
-}
-
-.modaltable1 tr{
-	background-color: white;
+	display: flex;
 }
 
 
-.modaltable2{
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-
-}
-
-.modaltable2 td{
-	padding-left: 2vw;
-	padding-right: 2vw;
-}
-
-.modaltable2 tr{
-	background-color: white;
-}
-
-.modalwarning{
-	grid-column: 1/5;
-	grid-row: 6/7;
-	color: #8f1315;
-	font-size: 1.1em;
-}
-
-.modalwarning b{
-	font-size: 1.3em;
-}
-
-
-.modalbutton{
-	background-color: white;
-	margin-left: auto;
-	margin-right: auto;
-	height: 6vh;
-	width: 8vw;
-	border-radius: 1vw;
-	cursor: pointer;
-	vertical-align: middle;
-}
-
-.modalbutton p{
-	margin-top: auto;
-	margin-bottom: auto;
-	padding-top: 0.5vh;
-}
-
-@keyframes flash{
-    0% {border-color: red;}
-    20% {border-color: #006400;}
-    40% {border-color: #FFFAF0;}
-    50% {border-color: #7FFF00;}
-    60% {border-color: #ADFF2F;}
-    75% {border-color: #B22222;}
-    90% {border-color: #4B0082;}
-}
-
-.modalbutton:hover{
-	background-color: rgb(153, 131, 58);
-}
