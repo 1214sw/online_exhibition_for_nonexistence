@@ -1,11 +1,3 @@
-const scrollElement = window.document.scrollingElement || window.document.body || window.document.documentElement;
-
-function earthquake(){
-    $(document).animate({
-        scrollTop: '+= 70'
-    }, 300);
-}
-
 function loadFile(filePath) {
     var result = null;
     var xmlhttp = new XMLHttpRequest();
