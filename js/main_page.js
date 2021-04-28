@@ -1,7 +1,3 @@
-const imageLine = (i) => {
-    return `<div class = "container-item"><a href="../gallery.html/?id=${i}"><img src = "../art work/art${i}.jpg"></a></div>`
-}
-
 const scrollElement = window.document.scrollingElement || window.document.body || window.document.documentElement;
 
 function earthquake(){
@@ -23,14 +19,13 @@ function loadFile(filePath) {
 
 var num_of_arts = loadFile('../art work/list.csv').split("\n").length;
 var GALLERY = `<div class = "container-item"><h1>GALLERY</h1> <h1>GALLERY</h1> <h1>GALLERY GALLERY GALLERY</h1></div>`
-var RIOT = `<div class = "container-item"><h1><a href = "../RIOT/riot.html">RIOTRIOT</a></h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1></div>`
-var Boogie_Woogie = `<div class = "container-item"><h1>Boogie-Woogie-Boogie-Woogie</h1></div>`
+var RIOT = `<div class = "container-item"><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1><h1>RIOTRIOT</h1></div>`
 var text = ``;
 const getnumber = (min,max) => {return Math.floor(Math.random()*(max-min)+min)};
 
 const text_generator = () =>{
     const multiplier = (i, text) => {return text.repeat(i)};
-    const imageLine = i => {return `<div class = "container-item"><a href="../gallery.html/?id=${i}"><img src = "../art work/art${i}.jpg"></a></div>`};
+    const imageLine = i => {return `<div class = "container-item"><a href="../gallery.html"><img src = "../art work/art${i}.jpg"></a></div>`};
     const listGenerator =  () => {
         var text = '';
         for (var i = 0; i<num_of_arts; i++){
@@ -55,7 +50,6 @@ const text_generator = () =>{
         return_text += randomListGenerator(3);
         return_text = multiplier(3, return_text);
         return_text += randomListGenerator(4);
-        return_text += Boogie_Woogie;
         return_text += randomListGenerator(2);
     }
     
@@ -66,17 +60,6 @@ const text_generator = () =>{
 const american = text_generator();
 document.querySelector(".container").innerHTML = american;
 
-
-/*
-var n=5;
-
-for(var i = 0; i<n; i++){
-    var inner = text;
-    inner += text+ GALLERY + RIOT + Boogie_Woogie; 
-};
-document.querySelector('.container').innerHTML = inner;
-
-*/
 const toTop = document.querySelector(".to-top");
 const toLeft = document.querySelector(".to-left");
 
@@ -138,6 +121,12 @@ var scrollCounter= 0;
 function firstWarning(){
     scrollCounter = 0;
     speedlimit.classList.add("centerflash");
+    setTimeout(function(){
+        speedlimit.classList.add("centerflash");
+    }, 2000);
+    setInterval(function(){
+        document.body.style.overflow = "hidden";
+    }, 2000);
 }
 
 $(window).on('load', function(){
@@ -145,12 +134,13 @@ $(window).on('load', function(){
     setTimeout(function(){
         $(".loader-wrapper").hide();
         $(".speedlimit").addClass("active");
-        $(".earthquake").addClass("active");
         window.addEventListener("scroll", () => {
             if (window.pageYOffset > 100){
                 toTop.classList.add("active");
+                toLeft.classList.add("active");
             } else{
                 toTop.classList.remove("active");
+                toLeft.classList.remove("active");
             }
         });
         $(".to-top").click(function(){
@@ -191,16 +181,11 @@ $(window).on('load', function(){
             var someDate = new Date();
             var numberOfDaysToAdd = 30;
             var newDate = new Date(someDate.getDate() + numberOfDaysToAdd); 
-            console.log(checkYScrollSpeed());
-            console.log(checkXScrollSpeed());
             var maxspeed = Math.max(checkYScrollSpeed(), checkXScrollSpeed());
-            console.log(maxspeed)
             speedlimit.classList.add("centerflash");
             modal.classList.add("active");
             document.body.style.overflow = "hidden";
-            setTimeout(function(){
-            speedlimit.classList.remove("centerflash");
-            }, 2000);
+
         }
     }
     })
