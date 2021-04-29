@@ -67,6 +67,10 @@ body{
 	padding: 0;
 }
 
+.waterfall-canvas{
+	height: 50rem;
+}
+
 .container-item h1:hover{
 	color: #455396;
 }
@@ -87,6 +91,10 @@ body{
 
 	.container-item h1{
 		font-size: 2rem;
+	}
+
+	.waterfall-canvas{
+		height: 40rem;
 	}
 }
 

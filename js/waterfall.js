@@ -2,9 +2,6 @@ function waterfall(canvas){
     console.log("fired");
     var c = canvas.getContext('2d');
 
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
-
     // Set Vairables
 
     const getRandom = (a,b) =>{
@@ -61,9 +58,9 @@ function waterfall(canvas){
 
     const init = () =>{
         for(let i = 0; i<300; i++){
-            var radius = getRandom(0.5,2) ** 2.1;
+            var radius = getRandom(0.5,2);
             var color = getRandomColor(colorArray);
-            var x = getRandom(0,6)**2 + 100;
+            var x = getRandom(0,2)**2 + 130;
             var y = getRandom(20,Math.sqrt(innerHeight) ** 2);
             var dx = 0.1;
             var dy = 0;

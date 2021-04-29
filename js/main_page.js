@@ -39,7 +39,7 @@ function textGenerator(){
         }
         return text
     }
-    var j = 5;
+    var j = 6;
     var return_text = '';
     for (var k =0; k<j; k++){
         return_text += randomListGenerator(7);
@@ -50,7 +50,7 @@ function textGenerator(){
         return_text = multiplier(3, return_text);
         return_text += randomListGenerator(4);
         return_text += randomListGenerator(2);
-        if (k == 2 || k == 3){return_text += WATERFALL;}
+        if (k == 2 || k == 3 || k==4){return_text += WATERFALL;}
     }
     
     return return_text;
@@ -165,15 +165,21 @@ $(window).on('load', function(){
         if(scrollCounter == 2){
             speedlimit.classList.add("flash");
         }
-        else if(scrollCounter>3){
-            var someDate = new Date();
-            var numberOfDaysToAdd = 30;
-            var newDate = new Date(someDate.getDate() + numberOfDaysToAdd); 
-            var maxspeed = Math.max(checkYScrollSpeed(), checkXScrollSpeed());
-            speedlimit.classList.add("centerflash");
-            modal.classList.add("active");
+        else if(scrollCounter==3 && (strikeCounter==0||strikeCounter==1)){
+            speedlimit.classList.toggle("centerflash");
+            modal.classList.toggle("active");
+            setTimeout(function(){
+                speedlimit.classList.toggle("centerflash");
+                modal.classList.toggle("active");
+                scrollCounter = 0;
+                strikeCounter = 1 + strikeCounter;
+                console.log(scrollCounter, strikeCounter);
+            }, 5000)
+        }
+        else if(scrollCounter==3 && strikeCounter==2){
+            speedlimit.classList.toggle("centerflash");
+            modal.classList.toggle("active");
             document.body.style.overflow = "hidden";
-
         }
     }
     })
